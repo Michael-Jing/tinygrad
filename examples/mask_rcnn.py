@@ -245,7 +245,7 @@ CATEGORIES = [
 def overlay_boxes(image, predictions):
   labels = predictions.get_field("labels").numpy()
   boxes = predictions.bbox
-  image = np.asarray(image)
+  image = np.asarray(image).astype(np.uint8)
   colors = compute_colors_for_labels(labels).tolist()
 
   for box, color in zip(boxes, colors):
